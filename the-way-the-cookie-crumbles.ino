@@ -6,6 +6,7 @@ Player player;
 
 void setup()
 {
+	arduboy.setFrameRate(30);
 	arduboy.begin();
 }
 
@@ -17,6 +18,7 @@ void loop()
 
 	arduboy.clear();
 
+	player.control();
 	player.animate();
 	player.physics();
 	player.drawScore();

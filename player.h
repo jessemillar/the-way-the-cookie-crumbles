@@ -8,38 +8,54 @@ Sprites sprites;
 
 typedef struct Player
 {
-	uint8_t floor = 40;
-	uint8_t x = 10, y = 30;
+	uint8_t floor = HEIGHT - 10;
+	uint8_t x = 10, y = 0;
+	uint8_t width = 16, height = 16;
 	uint8_t momY = 0;
+	uint8_t weight = 1;
 	uint8_t frames = 6;
 	uint8_t curFrame = 0;
 	int score = 0;
 
+	void control()
+	{
+		if (arduboy.justPressed(A_BUTTON | B_BUTTON | UP_BUTTON))
+		{
+			jump();
+		}
+	}
+
 	void jump()
 	{
-		momY += 5;
+		if (y + height == floor)
+		{
+			momY -= 8;
+		}
 	}
 
 	void physics()
 	{
+		y += momY;
+
 		gravity();
 	}
 
 	void gravity()
 	{
-		if (y < floor)
+		if (y + height < floor)
 		{
-			y++;
+			momY += weight;
 		}
 		else
 		{
-			y = floor;
+			momY = 0;
+			y = floor - height;
 		}
 	}
 
 	void animate()
 	{
-		if (arduboy.everyXFrames(3))
+		if (arduboy.everyXFrames(2))
 		{
 			if (curFrame < frames - 1)
 			{
@@ -60,6 +76,7 @@ typedef struct Player
 
 	void draw()
 	{
+		arduboy.fillRect(0, floor, WIDTH, HEIGHT - floor);
 		sprites.drawSelfMasked(x, y, theodore, curFrame);
 	}
 } Player;
