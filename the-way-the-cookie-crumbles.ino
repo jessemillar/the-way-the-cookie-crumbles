@@ -1,7 +1,8 @@
-#include <Arduboy2.h>
-
+#include "globals.h"
+#include "compycore.h"
 #include "player.h"
 
+Compycore compycore;
 Player player;
 
 void setup()
@@ -33,6 +34,8 @@ void loop()
 	arduboy.pollButtons();
 
 	arduboy.clear();
+
+	compycore.introduce();
 
 	player.control();
 	player.animate();
