@@ -35,7 +35,7 @@ void loop()
 
 	arduboy.clear();
 
-	compycore.introduce();
+	if (!(compycore.introduce())) return;
 
 	player.control();
 	player.animate();
