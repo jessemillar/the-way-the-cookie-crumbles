@@ -35,13 +35,12 @@ const unsigned char PROGMEM wink[] =
 
 typedef struct Compycore
 {
+	bool introduced = false;
 	bool winked = false;
 	uint8_t michaelX = 30;
 	int michaelY = -46;
 	uint8_t michaelTargetY = 5;
 	uint8_t logoX = 30, logoY = 46;
-	uint8_t t = 0;
-	uint8_t ttl = 25;
 
 	bool introduce()
 	{
@@ -52,12 +51,9 @@ typedef struct Compycore
 		}
 		else
 		{
-			if (t < ttl)
+			if (introduced | arduboy.everyXFrames(75))
 			{
-				t++;
-			}
-			else
-			{
+				introduced = true;
 				return true;
 			}
 

@@ -3,10 +3,10 @@
 typedef struct Player
 {
 	uint8_t floor = HEIGHT - 10;
-	uint8_t x = 10, y = 0;
+	float x = 10, y = 0;
 	uint8_t width = 16, height = 16;
 	uint8_t momY = 0;
-	uint8_t weight = 1;
+	float weight = 0.25;
 	uint8_t frames = 6;
 	uint8_t curFrame = 0;
 	int score = 0;
@@ -49,7 +49,7 @@ typedef struct Player
 
 	void animate()
 	{
-		if (arduboy.everyXFrames(2))
+		if (arduboy.everyXFrames(4))
 		{
 			if (curFrame < frames - 1)
 			{

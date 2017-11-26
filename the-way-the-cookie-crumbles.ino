@@ -7,8 +7,6 @@ Player player;
 
 void setup()
 {
-	arduboy.setFrameRate(30);
-
 	arduboy.boot(); // raw hardware
 	arduboy.blank(); // blank the display
 
