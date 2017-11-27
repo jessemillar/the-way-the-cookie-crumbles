@@ -46,12 +46,12 @@ typedef struct Compycore
 	{
 		if (michaelY < michaelTargetY)
 		{
-			michaelY += 2;
+			michaelY++;
 			sprites.drawSelfMasked(michaelX, michaelY, michael, 0);
 		}
 		else
 		{
-			if (introduced | arduboy.everyXFrames(75))
+			if (introduced | arduboy.everyXFrames(150))
 			{
 				introduced = true;
 				return true;
