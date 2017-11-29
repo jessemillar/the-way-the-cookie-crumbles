@@ -2,13 +2,13 @@
 
 typedef struct Player
 {
-	uint8_t floor = HEIGHT - 10;
+	byte floor = HEIGHT - 10;
 	float x = 10, y = 0;
-	uint8_t width = 16, height = 16;
-	uint8_t momY = 0;
+	byte width = 16, height = 16;
+	byte momY = 0;
 	float weight = 0.25;
-	uint8_t frames = 6;
-	uint8_t curFrame = 0;
+	byte frames = 6;
+	byte curFrame = 0;
 	int score = 0;
 
 	void control()

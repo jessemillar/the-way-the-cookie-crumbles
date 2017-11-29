@@ -37,10 +37,10 @@ typedef struct Compycore
 {
 	bool introduced = false;
 	bool winked = false;
-	uint8_t michaelX = 29;
+	byte michaelX = 29;
 	int michaelY = -46;
-	uint8_t michaelTargetY = 5;
-	uint8_t logoX = 30, logoY = 46;
+	byte michaelTargetY = 5;
+	byte logoX = 30, logoY = 46;
 
 	bool introduce()
 	{
