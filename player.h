@@ -7,7 +7,8 @@ typedef struct Player
 	byte width = 16, height = 16;
 	float momY = 0;
 	float weight = 0.75;
-	float jumpStrength = 6.5;
+	float jumpStrength = 7;
+	int maxScoreDigits = 7;
 	byte frames = 6;
 	byte curFrame = 0;
 	int score = 0;
@@ -65,8 +66,15 @@ typedef struct Player
 
 	void drawScore()
 	{
-		arduboy.setCursor(2, 2);
-		arduboy.print(score);
+		String displayScore = String(score);
+
+		while (displayScore.length() < maxScoreDigits)
+		{
+			displayScore = "0" + displayScore;
+		}
+
+		arduboy.setCursor(WIDTH - maxScoreDigits * 6 - 3, 3);
+		arduboy.print(displayScore);
 	}
 
 	void draw()
