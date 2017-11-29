@@ -5,8 +5,9 @@ typedef struct Player
 	byte floor = HEIGHT - 10;
 	float x = 10, y = 0;
 	byte width = 16, height = 16;
-	byte momY = 0;
-	float weight = 0.25;
+	float momY = 0;
+	float weight = 0.75;
+	float jumpStrength = 6.5;
 	byte frames = 6;
 	byte curFrame = 0;
 	int score = 0;
@@ -23,7 +24,7 @@ typedef struct Player
 	{
 		if (y + height == floor)
 		{
-			momY -= 8;
+			momY -= jumpStrength;
 		}
 	}
 
@@ -49,7 +50,7 @@ typedef struct Player
 
 	void animate()
 	{
-		if (arduboy.everyXFrames(4))
+		if (arduboy.everyXFrames(2))
 		{
 			if (curFrame < frames - 1)
 			{
@@ -71,6 +72,6 @@ typedef struct Player
 	void draw()
 	{
 		arduboy.fillRect(0, floor, WIDTH, HEIGHT - floor);
-		sprites.drawSelfMasked(x, y, theodore, curFrame);
+		sprites.drawSelfMasked(int(x), int(y), theodore, curFrame);
 	}
 } Player;
