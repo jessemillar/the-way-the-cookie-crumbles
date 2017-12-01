@@ -6,7 +6,7 @@ typedef struct Player
 	float x = 10, y = 0;
 	byte width = 16, height = 16;
 	float momY = 0;
-	float weight = 0.75;
+	float weight = 0.7;
 	float jumpStrength = 7;
 	int maxScoreDigits = 7;
 	byte frames = 6;
@@ -23,6 +23,8 @@ typedef struct Player
 
 	void jump()
 	{
+		score++;
+
 		if (y + height == floor)
 		{
 			momY -= jumpStrength;
@@ -51,7 +53,7 @@ typedef struct Player
 
 	void animate()
 	{
-		if (arduboy.everyXFrames(2))
+		if (arduboy.everyXFrames(3))
 		{
 			if (curFrame < frames - 1)
 			{
@@ -73,8 +75,7 @@ typedef struct Player
 			displayScore = "0" + displayScore;
 		}
 
-		arduboy.setCursor(WIDTH - maxScoreDigits * 6 - 3, 3);
-		arduboy.print(displayScore);
+		prettyPrintNumber(displayScore, WIDTH - maxScoreDigits * 7 - 3, 3);
 	}
 
 	void draw()
