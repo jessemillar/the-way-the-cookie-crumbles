@@ -6,8 +6,8 @@ typedef struct Player
 	float x = 10, y = 0;
 	byte width = 16, height = 16;
 	float momY = 0;
-	float weight = 0.7;
-	float jumpStrength = 7;
+	float weight = 0.35;
+	float jumpStrength = 5;
 	int maxScoreDigits = 7;
 	byte frames = 6;
 	byte curFrame = 0;
@@ -24,26 +24,18 @@ typedef struct Player
 
 		if (arduboy.pressed(LEFT_BUTTON))
 		{
-			animationSpeed = 4;
 			if (x - movementSpeed > 0)
 			{
+				animationSpeed = 4;
 				x -= movementSpeed;
-			}
-			else
-			{
-				x = 0;
 			}
 		}
 		else if (arduboy.pressed(RIGHT_BUTTON))
 		{
-			animationSpeed = 2;
 			if (x + movementSpeed + width < WIDTH)
 			{
+				animationSpeed = 2;
 				x += movementSpeed;
-			}
-			else
-			{
-				x = WIDTH - width;
 			}
 		}
 		else
