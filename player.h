@@ -5,6 +5,7 @@ typedef struct Player
 	byte floor = HEIGHT - 10;
 	float x = 10, y = 0;
 	byte width = 16, height = 16;
+	Rect cbox = {.x = x, .y = y, .width = width, .height = height};
 	float momY = 0;
 	float weight = 0.35;
 	float jumpStrength = 5;
@@ -104,6 +105,6 @@ typedef struct Player
 	void draw()
 	{
 		arduboy.fillRect(0, floor, WIDTH, HEIGHT - floor);
-		sprites.drawSelfMasked(int(x), int(y), theodore, curFrame);
+		sprites.drawPlusMask(int(x), int(y), theodore, curFrame);
 	}
 } Player;
