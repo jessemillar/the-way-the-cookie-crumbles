@@ -11,6 +11,8 @@ typedef struct Player
 	int maxScoreDigits = 7;
 	byte frames = 6;
 	byte curFrame = 0;
+	int animationSpeed = 3;
+	float movementSpeed = 1.5;
 	int score = 0;
 
 	void control()
@@ -18,6 +20,35 @@ typedef struct Player
 		if (arduboy.justPressed(A_BUTTON | B_BUTTON | UP_BUTTON))
 		{
 			jump();
+		}
+
+		if (arduboy.pressed(LEFT_BUTTON))
+		{
+			animationSpeed = 4;
+			if (x - movementSpeed > 0)
+			{
+				x -= movementSpeed;
+			}
+			else
+			{
+				x = 0;
+			}
+		}
+		else if (arduboy.pressed(RIGHT_BUTTON))
+		{
+			animationSpeed = 2;
+			if (x + movementSpeed + width < WIDTH)
+			{
+				x += movementSpeed;
+			}
+			else
+			{
+				x = WIDTH - width;
+			}
+		}
+		else
+		{
+			animationSpeed = 3;
 		}
 	}
 
@@ -53,7 +84,7 @@ typedef struct Player
 
 	void animate()
 	{
-		if (arduboy.everyXFrames(3))
+		if (arduboy.everyXFrames(animationSpeed))
 		{
 			if (curFrame < frames - 1)
 			{
