@@ -21,6 +21,11 @@ typedef struct Entity
 		}
 	}
 
+	void updateCbox()
+	{
+		cbox = {.x = x, .y = y, .width = width, .height = height};
+	}
+
 	void physics()
 	{
 		y += momY;

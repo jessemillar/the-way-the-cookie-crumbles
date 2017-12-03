@@ -51,21 +51,25 @@ void loop()
 		enemies.push_back(Enemy());
 	}
 
+	player.drawScore();
+
 	// do stuff with the enemies
 	for(int i=0; i < enemies.size(); i++){
 		if (enemies[i].x>(0-enemies[i].width)) {
 			enemies[i].update();
 			enemies[i].draw();
+
+			if (arduboy.collide(player.cbox, enemies[i].cbox)) {
+				player.score+=1000;
+			}
 		} else {
+			// erase enemies when they're off the left of the screen
 			enemies.erase(enemies.begin() + i);
 			i--;
 		}
 	}
 
-	Serial.print("Collision");
-
 	player.update();
-	player.drawScore();
 	player.draw();
 
 	arduboy.display();

@@ -25,7 +25,6 @@ typedef struct Enemy: Entity
 	{
 		width = 16, height = 24;
 		x = WIDTH - width, y = 0;
-		cbox = {.x = x, .y = y, .width = width, .height = height};
 
 		momY = 0;
 		weight = 0.5;
@@ -40,6 +39,7 @@ typedef struct Enemy: Entity
 	{
 		animate();
 		physics();
+		updateCbox();
 
 		x -= movementSpeed;
 	}

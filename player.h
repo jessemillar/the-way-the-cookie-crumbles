@@ -48,7 +48,6 @@ typedef struct Player: Entity
 	{
 		x = 10, y = 0;
 		width = 16, height = 16;
-		cbox = {.x = x, .y = y, .width = width, .height = height};
 
 		momY = 0;
 		weight = 0.35;
@@ -65,6 +64,7 @@ typedef struct Player: Entity
 		control();
 		animate();
 		physics();
+		updateCbox();
 		increaseScore();
 	}
 
