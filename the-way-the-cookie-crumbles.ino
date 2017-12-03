@@ -1,10 +1,13 @@
 #include "globals.h"
 #include "utils.h"
 #include "compycore.h"
+#include "entity.h"
 #include "player.h"
+#include "enemy.h"
 
 Compycore compycore;
 Player player;
+Enemy enemy;
 
 void setup()
 {
@@ -36,9 +39,13 @@ void loop()
 
 	if (!(compycore.introduce())) return;
 
-	player.control();
-	player.animate();
-	player.physics();
+	// ground
+	arduboy.fillRect(0, ground, WIDTH, HEIGHT - ground);
+
+	enemy.update();
+	enemy.draw();
+
+	player.update();
 	player.drawScore();
 	player.draw();
 

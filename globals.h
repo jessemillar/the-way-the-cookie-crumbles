@@ -5,3 +5,5 @@
 Arduboy2 arduboy;
 ArduboyTones sound(arduboy.audio.enabled);
 Sprites sprites;
+
+byte ground = HEIGHT - 10;
