@@ -65,6 +65,7 @@ typedef struct Player: Entity
 		control();
 		animate();
 		physics();
+		increaseScore();
 	}
 
 	void draw()
@@ -99,6 +100,11 @@ typedef struct Player: Entity
 		{
 			animationFrequency = 3;
 		}
+	}
+
+	void increaseScore()
+	{
+		score += int(WIDTH / x * 5);
 	}
 
 	void drawScore()

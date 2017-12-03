@@ -23,8 +23,8 @@ typedef struct Enemy: Entity
 {
 	Enemy()
 	{
-		x = WIDTH - 10, y = 0;
 		width = 16, height = 24;
+		x = WIDTH - width, y = 0;
 		cbox = {.x = x, .y = y, .width = width, .height = height};
 
 		momY = 0;
