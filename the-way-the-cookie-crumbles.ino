@@ -62,6 +62,8 @@ void loop()
 		}
 	}
 
+	Serial.print("Collision");
+
 	player.update();
 	player.drawScore();
 	player.draw();
