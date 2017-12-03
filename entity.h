@@ -1,15 +1,17 @@
 typedef struct Entity
 {
-	float x = 10, y = 0;
-	byte width = 16, height = 16;
-	Rect cbox = {.x = x, .y = y, .width = width, .height = height};
-	float momY = 0;
-	float weight = 0.35;
-	float jumpStrength = 5;
-	byte frames = 6;
-	byte curFrame = 0;
-	int animationSpeed = 3;
-	float movementSpeed = 1.5;
+	float x, y;
+	byte width, height;
+	Rect cbox;
+
+	float momY;
+	float weight;
+	float movementSpeed;
+	float jumpStrength;
+
+	byte frames;
+	byte curFrame;
+	int animationFrequency;
 
 	void jump()
 	{
@@ -41,7 +43,7 @@ typedef struct Entity
 
 	void animate()
 	{
-		if (arduboy.everyXFrames(animationSpeed))
+		if (arduboy.everyXFrames(animationFrequency))
 		{
 			if (curFrame < frames - 1)
 			{

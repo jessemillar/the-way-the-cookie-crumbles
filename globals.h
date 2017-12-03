@@ -1,3 +1,4 @@
+#include <ArduinoSTL.h>
 #include <Arduboy2.h>
 #include <ArduboyTones.h>
 #include <Sprites.h>
