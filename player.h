@@ -104,7 +104,11 @@ typedef struct Player: Entity
 
 	void increaseScore()
 	{
-		score += int(WIDTH / x * 5);
+		// one point every second since we're running at 60fps
+		if (arduboy.everyXFrames(60))
+		{
+			score += int(x / WIDTH * 4) + 1;
+		}
 	}
 
 	void drawScore()
