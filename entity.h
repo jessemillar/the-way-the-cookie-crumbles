@@ -2,7 +2,8 @@ typedef struct Entity
 {
 	float x, y;
 	byte width, height;
-	Rect cbox;
+	Rect cbox; // used for cbox offset and size
+	Rect collide; // used to actually calculate collisions
 
 	float momY;
 	float weight;
@@ -21,9 +22,9 @@ typedef struct Entity
 		}
 	}
 
-	void updateCbox()
+	void updateCollide()
 	{
-		cbox = {.x = x, .y = y, .width = width, .height = height};
+		collide = {.x = x + cbox.x, .y = y + cbox.y, .width = cbox.width, .height = cbox.height};
 	}
 
 	void physics()

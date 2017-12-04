@@ -59,7 +59,7 @@ void loop()
 			enemies[i].update();
 			enemies[i].draw();
 
-			if (arduboy.collide(player.cbox, enemies[i].cbox)) {
+			if (arduboy.collide(player.collide, enemies[i].collide)) {
 				player.score+=1000;
 			}
 		} else {
