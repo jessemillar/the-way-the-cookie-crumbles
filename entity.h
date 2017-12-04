@@ -1,7 +1,7 @@
 typedef struct Entity
 {
 	float x, y;
-	byte width, height;
+	int width, height;
 	Rect cbox; // used for cbox offset and size
 	Rect collide; // used to actually calculate collisions
 
@@ -10,8 +10,8 @@ typedef struct Entity
 	float movementSpeed;
 	float jumpStrength;
 
-	byte frames;
-	byte curFrame;
+	int frames;
+	int curFrame;
 	int animationFrequency;
 
 	void jump()
