@@ -66,4 +66,11 @@ typedef struct Entity
 	{
 		sprites.drawPlusMask(int(x), int(y), sprite, curFrame);
 	}
+
+	void debug()
+	{
+		arduboy.drawRect(x + cbox.x - 1, y + cbox.y - 1, cbox.width + 2, cbox.height + 2, BLACK);
+		arduboy.drawRect(x + cbox.x + 1, y + cbox.y + 1, cbox.width - 2, cbox.height - 2, BLACK);
+		arduboy.drawRect(x + cbox.x, y + cbox.y, cbox.width, cbox.height);
+	}
 };

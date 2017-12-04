@@ -25,7 +25,7 @@ typedef struct Enemy: Entity
 	{
 		width = 16, height = 24;
 		x = WIDTH + width, y = 0;
-		cbox = {.x = 4, .y = 0, .width = 8, .height = 24};
+		cbox = {.x = 4, .y = 1, .width = 8, .height = 23};
 
 		momY = 0;
 		weight = 0.5;

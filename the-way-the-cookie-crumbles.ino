@@ -58,6 +58,7 @@ void loop()
 		if (enemies[i].x>(0-enemies[i].width)) {
 			enemies[i].update();
 			enemies[i].draw();
+			enemies[i].debug();
 
 			if (arduboy.collide(player.collide, enemies[i].collide)) {
 				player.score+=1000;
@@ -71,6 +72,7 @@ void loop()
 
 	player.update();
 	player.draw();
+	player.debug();
 
 	arduboy.display();
 }
