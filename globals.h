@@ -3,7 +3,7 @@
 #include <ArduboyTones.h>
 #include <Sprites.h>
 
-Arduboy2 arduboy;
+Arduboy2Base arduboy;
 ArduboyTones sound(arduboy.audio.enabled);
 Sprites sprites;
 
