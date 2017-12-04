@@ -24,6 +24,12 @@ typedef struct Entity
 
 	void updateCollide()
 	{
+		// if we haven't defined cbox, make it a default one
+		if (!cbox.x)
+		{
+			cbox = {.x = 0, .y = 0, .width = width, .height = height};
+		}
+
 		collide = {.x = x + cbox.x, .y = y + cbox.y, .width = cbox.width, .height = cbox.height};
 	}
 
