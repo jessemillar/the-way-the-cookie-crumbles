@@ -8,7 +8,6 @@
 Compycore compycore;
 Player player;
 
-const int enemyCount=5;
 std::vector<Enemy> enemies;
 
 void setup()
@@ -44,7 +43,7 @@ void loop()
 	if (!(compycore.introduce())) return;
 
 	// ground
-	arduboy.fillRect(0, ground-3, WIDTH, HEIGHT-ground+3);
+	fillRectPattern(0, ground-3, WIDTH, HEIGHT-ground+3);
 
 	// spawn a new enemy
 	if (random(100)<2) {
@@ -58,7 +57,7 @@ void loop()
 		if (enemies[i].x>(0-enemies[i].width)) {
 			enemies[i].update();
 			enemies[i].draw();
-			//enemies[i].debug();
+			enemies[i].debug();
 
 			if (arduboy.collide(player.collide, enemies[i].collide)) {
 				player.score+=1000;
@@ -72,7 +71,7 @@ void loop()
 
 	player.update();
 	player.draw();
-	//player.debug();
+	player.debug();
 
 	arduboy.display();
 }
