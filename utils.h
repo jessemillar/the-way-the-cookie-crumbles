@@ -56,33 +56,18 @@ void prettyPrintNumber(String number, int x, int y)
 
 void fillRectPattern(int x, int y, int w, int h)
 {
-	int color;
 
 	for (int tempY = y; tempY < y + h; tempY++)
 	{
-		// select the starting color for the line
-		if (tempY % 2 == 0)
-		{
-			color = WHITE;
-		}
-		else
-		{
-			color = BLACK;
-		}
+		// select the starting color
+		int color = tempY % 2;
 
 		for (int tempX = x; tempX < x + w; tempX++)
 		{
 			arduboy.drawPixel(tempX, tempY, color);
 
 			// swap the color
-			if (color == WHITE)
-			{
-				color = BLACK;
-			}
-			else
-			{
-				color = WHITE;
-			}
+			color = 1 - color;
 		}
 	}
 }
