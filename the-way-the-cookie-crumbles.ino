@@ -43,7 +43,9 @@ void loop()
 	if (!(compycore.introduce())) return;
 
 	// ground
-	fillRectPattern(0, ground-3, WIDTH, HEIGHT-ground+3);
+	arduboy.drawLine(0, ground,WIDTH,ground);
+	arduboy.drawLine(0, ground+1,WIDTH,ground+1);
+	fillRectPattern(0, ground+3, WIDTH, HEIGHT-ground-3);
 
 	// spawn a new enemy
 	if (random(100)<2) {
@@ -57,7 +59,7 @@ void loop()
 		if (enemies[i].x>(0-enemies[i].width)) {
 			enemies[i].update();
 			enemies[i].draw();
-			enemies[i].debug();
+			// enemies[i].debug();
 
 			if (arduboy.collide(player.collide, enemies[i].collide)) {
 				player.score+=1000;
@@ -71,7 +73,7 @@ void loop()
 
 	player.update();
 	player.draw();
-	player.debug();
+	// player.debug();
 
 	arduboy.display();
 }

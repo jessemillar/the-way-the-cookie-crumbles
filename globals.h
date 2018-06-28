@@ -7,4 +7,4 @@ Arduboy2Base arduboy;
 ArduboyTones sound(arduboy.audio.enabled);
 Sprites sprites;
 
-int ground = HEIGHT - 10;
+int ground = HEIGHT - 12;
